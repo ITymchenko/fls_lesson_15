@@ -1,0 +1,458 @@
+/* 
+&display=swap
+&subset=cyrillic-ext 
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,700,900&display=swap");
+
+/* ОБНУЛЕНИЕ СТИЛЕЙ */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+li {
+    list-style: none;
+}
+a,
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+img {
+    vertical-align: top;
+}
+html,
+body {
+    height: 100%;
+}
+html {
+    /* по умолчанию */
+    font-size: 16px;
+}
+body {
+    line-height: 1;
+    color: #4b4b4b;
+    font-family: "Roboto";
+    background-color: #f5f5f5;
+}
+    .wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex; /*Делайем .wrapper Flex контенером (хедер - мейн - футер - станут флекс элементами), лайфхак как прибить footer к низу по умолчанию, чтобы не мешал*/
+    flex-direction: column; /*разваричиваем флекс коентейнер чтобы развернуть элементы в колонки от верха к низу.*/
+}
+
+/*----------------------------------------------------------------------------------------------*/
+
+.header {
+    background-color: #794f45;
+    padding: 15px;
+}
+
+.header__title,
+.footer__title {
+    color: #fff;
+    text-align: center;
+    font-size: 36px;
+    line-height: 1.16; /*вычисляем части: 42px/36px=1.16*/
+    font-weight: 900;
+    opacity: 0.5;
+}
+
+.footer {
+    background-color: #794f45;
+    padding: 15px;
+}
+
+/* -------------------------------------- */
+
+.main {
+    /*flex: 1 1 auto; полная запись, чтобы позволить мейну уеличиваться, без этого footer не прижмёться к низу*/
+    flex-grow: 1; /*короткая запись, по умочанию значение 0 и мы его меняем на 1, тогда мейн как флекс элемент будет заполнять всё свободное пространство*/
+}
+
+/* -------------------------------------- */
+
+[class*="__container"] { /*для всех классов, где будет встречаться __container мы задаём внешние отступы и свойства*/
+    max-width: 1020px; /*ширина контейнера по макету*/
+    margin: 0 auto; /*для центровки контейнера по-центру страницы*/
+    padding: 0 15px; /*добавляем для контейнера отступы безопасности слева и справа, чтобы края не наехали на контент при уменьшении окна*/
+}
+
+/* -------------------------------------- */
+
+/* .titles {
+} */
+
+.titles *:not(:last-child) { /*чтобы сделать отступ вниз и отодвтнуть заголовок, задаём отступ вниз всем элементам родителя кроме последнего*/
+    margin: 0 0 33px 0; /*при удалении последнего элемента пропадёт с ним и отступ вниз*/
+}
+
+.titles__label {
+    padding: 0 0 0 35px; /*отодвигаем иконку, растояние по макету*/
+    background: url("../img/mark2.svg") 0 -2px no-repeat; /*вставляем и выравниваем иконку на уровне надписи*/
+    color: #5d62b5;
+    font-size: 12px;
+    line-height: 2; /*чтобы было адаптивно указываем в частах (какальтернатива %). Вычсляем: line-height 24px/font-size 12px=2 части */
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.titles__label_white {
+    background: url("../img/mark.svg") 0 -2px no-repeat;
+    color: #fff;
+}
+
+.titles__item {
+    color: #000;
+    font-size: 36px;
+    line-height: 1.16; /*вычисляем части: 42px/36px=1.16*/
+    font-weight: 900;
+}
+
+.titles__item_white {
+    color: #fff;
+}
+
+.item-title { /*для всех заголовков на странице с таким классом, т.к. они у нас повторяются в макете*/
+    font-weight: 900;
+    font-size: 19px;
+    line-height: 1.37;
+    color: #f2726f;
+}
+
+.item-text { /*для всего текста на странице с таким классом, т.к. он у нас повторяется в макете*/
+    line-height: 1.5;
+}
+
+.promise {
+    padding: 50px 0;
+}
+
+/* .promise__container {
+} */
+
+.promise__header {
+    margin: 0 0 68px 0; /*отступ вниз от заголовоков до контента по макету. задаём общему контейнеру с заголовками но как элементу*/
+}
+
+.promise__items {
+    display: flex;
+    flex-wrap: wrap; /*позволяем флекс элементам перемещаться на другую строку когда недостаточно места по ширине*/
+    row-gap: 24px; /*отступ между строками 24px (елси будет карточек больше то они будут выстраиваться с одинаковым отступом)*/
+    margin: 0 -12px; /*раздвигаем карточки чтобы не стояли впритык, задаём отступ влево и вправо но с отрицательным значением -12px (половина растояния)*/
+}
+
+.promise__item {
+    padding: 0 12px; /*компенсируем margin: 0 -12px чтобы не выпирал за пределы ограничивающего блока и был отступ между каждой арточки в совокупности 24px*/
+    flex: 1 1 33.333%; /*карточек внутри блока у нас три, он занимает треть ширины флекс контейнера, поэтому 33.333% и позволяем увеличиваться/уменьшаться*/
+    min-width: 260px;
+}
+
+/*----группа селекторов для элементов внутри саомй карточки----*/
+
+.item-promise {
+    display: flex;
+    align-items: flex-start; /*чтобы иконку и текст прижать к верху, так иконкка будет всегда сверху даже если будет больше текста*/
+    column-gap: 23px; /*отодвигаем картинку от текста. Так лучше чем просто падингом*/
+}
+
+.item-promise__icon {
+    flex: 0 0 63px; /*запрещаем иконке уменьшаться и увеличиваться и задаём ей фиксированный размер по макету*/
+}
+
+/* .item-promis__body {
+} */
+
+/* .item-promise__title {
+} */
+
+.item-promise__title:not(:last-child) { /*отступ от заголовка к тексту, если не булет текста то пропадёт у тайтла висячий отступ*/
+    margin: 0 0 20px 0;
+}
+/* .item-promise__text {
+} */
+
+/*----------------------------------------------------------------------------------------------*/
+
+.services {
+    overflow: hidden;
+    padding: 100px 0 112px 0;
+    position: relative;
+    /* background: url("../img/services/blob-white.png") right -490px no-repeat; */
+}
+
+/* Еще один вариант как поставить фоном бэкграунд белую кляксум с помощью position: absolute вместо обычного background это будет лучше если загрузить полное изображение и не обрезать его*/
+.services::before {
+    content: "";
+    background: url("../img/services/full-white-blob.png") left -490px no-repeat;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(200px, 0px);
+    width: 100%;
+    height: 100%;
+}
+
+.services__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px; /*чтобы отодвинуть сделующий блок вниз просто для наглядности*/
+}
+
+.services__container .services__header { /*отступ вниз между шапкой и карточками*/
+    margin: 0 0 74px 0;
+}
+
+.services__items {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 24px; /*боковой отступ между карточками*/
+    margin: 0 -12px;
+}
+
+.services__items:not(:last-child) { /*оступ вниз от контейнера с карточками до кнопки */
+    margin: 0 0 66px 0;
+}
+
+.services__item {
+    flex: 1 1 33.333%;
+    padding: 0 12px;
+    min-width: 300px;
+}
+
+/*-----Кнопка вариант №1 Стандарная, подходит когда только текст в кнопке-------------------------- */
+.services__button {
+    align-self: center;
+    background-color: #f2726f;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 2;
+    padding: 12px 25px;
+}
+/*-----Кнопка вариант №2 с помощью ФЛЕКС, этот вариант подходит когда кроме текста в кнопке есть еще элементы-----*/
+/* .services__button {
+    align-self: center;
+    display: inline-flex;
+    background-color: #f2726f;
+    border-radius: 8px;
+    min-height: 48px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 2;
+    padding: 0 25px;
+} */
+
+.item-services { /*мини блок с контентом внутри карточки*/
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+}
+
+.item-services__icon {
+    flex: 0 0 63px;
+    width: 63px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.item-services__icon img {
+    max-width: 100%;
+    max-height: 63px;
+}
+
+.item-services__icon:not(:last-child) { /*отступ от Картинки к заголовку, если не булет текста то пропадёт у тайтла висячий отступ*/
+    margin: 0 0 33px 0;
+}
+
+/* .item-services__title {
+} */
+
+.item-services__title:not(:last-child) { /*отступ от заголовка вниз к тексту, если не булет текста то пропадёт у тайтла висячий отступ*/
+    margin: 0 0 20px 0;
+}
+
+.item-services__text {
+    flex: 1 1 auto;
+}
+
+.item-services__text:not(:last-child) {
+    margin: 0 0 20px 0;
+}
+
+/* .item-services__link {
+    color: #f2726f;
+} */
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+.impact {
+    padding: 0 0 212px 0;
+    background-color: #29c3be;
+}
+
+.impact__container {
+    position: relative; /*чтобы добавить псевдоэлементом кляксу за собакой*/
+}
+
+.impact__container::before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 50%; /*двигаем кляксу,привязываемся к правой части*/
+    transform: translate(88%, 0px); /*возвращаем кляксу на нужное место, выставляем точнее*/
+    width: 68%; /*подгоняем размер в % для адаптива 695px/1020px=68%*/
+    height: 100%;
+    background: url("../img/impact/bg.png") 0 0 / 100% no-repeat;
+}
+
+.impact__body {
+    display: flex;
+    position: relative; /*чтобы вывести на верх картинку с собакой*/
+    margin: 0 -15px; /*отступ безопасности для боди*/
+}
+
+.impact__body:not(:last-child) { /*отступ вниз от заголовка до карточек - размер по макету*/
+    margin-bottom: 80px;
+}
+
+.impact__content {
+    align-self: flex-end; /*отодвигаем вниз как в макете но без падинга, чтобы текст адаптивно поднимался вверх, вместо падингом сверху для блока .impact*/
+    padding: 20px 15px 0 15px; /*компенсируем отрицательный марджин отступа безопасности для заголовка*/
+    flex: 0 0 50%; /*Контент с заголовком и картинка занимают примерно равные части флекс контейнера, поэтому задаём 50%, можно было space-beetween но это не лучший вариант*/
+}
+
+.impact__header {
+    max-width: 420px; /*размер блока для заголовка как в макете*/
+}
+
+.impact__image {
+    margin: -7.61% 0 0 0; /*margin зависит от ширины родителя (флекс контейнера), он у нас 1050px c учётом внешних отступов 80px/1050px=7.61%, делаем его отрицательным чтобы выдвенуть вверх*/
+    flex: 0 0 50%;  /*Контент с заголовком и картинка занимают примерно равные части флекс контейнера, поэтому задаём 50%, можно было space-beetween но это не лучший вариант*/
+    padding: 0 15px; /*компенсируем отрицательный марджин отступа безопасности для картинки (15px это недостающий отступ от картинки до центра контейнера)*/ 
+}
+
+.impact__image img { /*параметры картинки*/
+    border-radius: 40px;
+    max-width: 100%; /*чтобы всегда картинка занимала 100% своего контейнера независимо от размеров самой картинки */
+}
+
+.impact__items {
+    margin: 0 -12px; /*управляем растоянием, выдвигаем за пределы блока карточки*/
+    display: flex;
+    align-items: flex-start; /*карточки выравниваем на одном уровне по верхней части чтоюы все были на одном уровне независимо от изменений*/
+    flex-wrap: wrap;
+    row-gap: 24px; /*растояние между карточками*/
+}
+
+.impact__item { /*компенсируем отрицательный мерджин и задаём 12px падинг аждой карточке с обех сторон (половина растояния между карточками)*/
+    padding: 0 12px;
+    flex: 0 1 25%; /*у нас четыре карточки, одна карочка то четверть размера блока*/
+}
+
+.item-impact {
+    display: flex;
+    align-items: flex-start; /*чтобы иконка всегда была вверху текста независимо от количества текста*/
+    column-gap: 11px; /*растояние от иконки до текста */
+}
+
+.item-impact__icon {
+    flex: 0 0 76px; /*фиксируем размер карточки*/
+}
+
+.item-impact__body {
+    align-self: center;
+}
+
+.item-impact__value {
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1.17; /*line-height делим на font-size:*/
+    color: #fff;
+}
+
+.item-impact__value:not(:last-child) {
+    margin: 0 0 3px 0;
+}
+
+.item-impact__text {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.15px;
+    color: #5d62b5;
+}
+/* ---------------------------------------------------------- */
+.main__appointment-block {
+    margin: -75px auto 150px;
+}
+
+.appointment-block {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1020px;
+    background: #5D62B5;
+    border-radius: 20px;
+    padding: 45px 70px 45px 70px;
+}
+
+.appointment-block__title {
+    display: flex;
+    flex: 0 1 57%;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 30px;
+    color: #fff;
+    /* margin: 0 100px 0 0; */
+}
+
+.appointment-block__link {
+    align-self: center;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.15px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #F2726F;
+    border-radius: 8px;
+    padding: 20px 35px;
+}
+
+.appointment-block__link:hover {
+    opacity: 0.6;
+}
+

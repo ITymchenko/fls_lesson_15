@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 15</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1 class="header__title">
+                LESSON 15 (FLEX - ПРОЗРЕНИЕ)
+            </h1>
+        </header>
+        <main class="main">
+            <!--Основной блок, ему нельзя задавать внешние параметры-->
+            <div class="promise"> 
+                <!--Контейнер внутри блока - элемент, ему задаём внешние отступы и свойства через сложные селекторы-->
+                <div class="promise__container"> 
+                    <!--шапка контейнера-->
+                    <div class="promise__header titles">
+                        <div class="titles__label">OUR PROMISE TO YOU</div>
+                        <h2 class="titles__item">Sed perspiciatis omnis iste natus</h2>
+                    </div>
+                    <!--Контент под шапкой в виде карточек, делаем его флекс контейнером-->
+                    <div class="promise__items">
+                        <!--В данном случае карточка и контент в ней является флекс элементом (структурная часть) внутри флекс контейнера. Дополнительная оболочка не требуется-->
+                        <div class="promise__item item-promise"> 
+                            <img class="item-promise__icon" src="img/promise/dog-love.svg" alt="Иконка">
+                            <div class="item-promis__body">
+                                <div class="item-promise__title item-title">24/7 Love & Care</div>
+                                <div class="item-promise__text item-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                            </div>
+                        </div>
+                        <div class="promise__item item-promise">
+                            <img class="item-promise__icon" src="img/promise/dog-vet.svg" alt="Иконка">
+                            <div class="item-promis__body">
+                                <div class="item-promise__title item-title">On-site Veterinarian</div>
+                                <div class="item-promise__text item-text">Dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.</div>
+                            </div>
+                        </div>
+                        <div class="promise__item item-promise">
+                            <img class="item-promise__icon" src="img/promise/dog-stream.svg" alt="Иконка">
+                            <div class="item-promis__body">
+                                <div class="item-promise__title item-title">Live-stream Cameras</div>
+                                <div class="item-promise__text item-text">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur illum.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Основной блок, ему нельзя задавать внешние параметры-->
+            <div class="services">
+                <!--Контейнер внутри блока - элемент, ему задаём внешние отступы и свойства через сложные селекторы-->
+                <div class="services__container">
+                    <div class="services__header titles">
+                        <div class="titles__label">Our Services</div>
+                        <h2 class="titles__item">Sed perspiciatis omnis iste natus</h2>
+                    </div>
+                    <!-- Флекс контейнер для карточек -->
+                    <div class="services__items">
+                        <!-- Флекс элемент - дополнительная оболочка для каждой карточки, чтобы задать внутренные падинги -->
+                        <div class="services__item">
+                            <!-- Контент - мини карточка внутри оболочки выше-->
+                            <div class="item-services">
+                                <div class="item-services__icon"> <!--Иконку тоже закрываем в оболочку, потому что другие иконки могут быть разного размера-->
+                                    <img src="img/services/dog-boarding.svg" alt="Иконка">
+                                </div>
+                                <div class="item-services__title item-title">Pet Boarding (No Cages)</div>
+                                <div class="item-services__text item-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.</div>
+                                <!-- <a href="" class="item-services__link">Я ссылка</a> -->
+                            </div>
+                        </div>
+                        <div class="services__item">
+                            <div class="item-services">
+                                <div class="item-services__icon">
+                                    <img src="img/services/dog-daycare.svg" alt="">
+                                </div>
+                                <div class="item-services__title item-title">
+                                    Pet Daycare
+                                </div>
+                                <div class="item-services__text item-text">
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.
+                                </div>
+                                <!-- <a href="" class="item-services__link">Я ссылка</a> -->
+                            </div>
+                        </div>
+                        <div class="services__item">
+                            <div class="item-services">
+                                <div class="item-services__icon">
+                                    <img src="img/services/dog-grooming.svg" alt="Иконка">
+                                </div>
+                                <div class="item-services__title item-title">
+                                    Pet Day Spa & Grooming
+                                </div>
+                                <div class="item-services__text item-text">
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas
+                                    .</div>
+                                <!-- <a href="" class="item-services__link">Я ссылка</a> -->
+                            </div>
+                        </div>
+                        <div class="services__item">
+                            <div class="item-services">
+                                <div class="item-services__icon">
+                                    <img src="img/services/dog-food.svg" alt="Иконка">
+                                </div>
+                                <div class="item-services__title item-title">
+                                    Custom Meal Plans
+                                </div>
+                                <div class="item-services__text item-text">
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.
+                                </div>
+                                <!-- <a href="" class="item-services__link">Я ссылка</a> -->
+                            </div>
+                        </div>
+                        <div class="services__item">
+                            <div class="item-services">
+                                <div class="item-services__icon">
+                                    <img src="img/services/dog-training.svg" alt="Иконка">
+                                </div>
+                                <div class="item-services__title item-title">
+                                    Pet Training
+                                </div>
+                                <div class="item-services__text item-text">
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.
+                                </div>
+                                <!-- <a href="" class="item-services__link">Я ссылка</a> -->
+                            </div>
+                        </div>
+                        <div class="services__item">
+                            <div class="item-services">
+                                <div class="item-services__icon">
+                                    <img src="img/services/dog-collar.svg" alt="Иконка">
+                                </div>
+                                <div class="item-services__title item-title">
+                                    Shop Our Store!
+                                </div>
+                                <div class="item-services__text item-text">
+                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium corrupti quos dolores et quas.
+                                </div>
+                                <!-- <a href="" class="item-services__link">Я ссылка</a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <a href="" class="services__button">Learn More</a>
+                </div>
+            </div>
+            <!--Основной блок, ему нельзя задавать внешние параметры-->
+            <div class="impact">
+                <!--Контейнер внутри блока - элемент, ему задаём внешние отступы и свойства через сложные селекторы-->
+                <div class="impact__container">
+                    <!-- Первый этаж контейнера -->
+                    <div class="impact__body">
+                        <div class="impact__content">
+                            <div class="impact__header titles">
+                                <div class="titles__label titles__label_white">OUR IMPACT</div>
+                                <h2 class="titles__item titles__item_white">Nemo enim ipsam voluptatem quia voluptas</h2>
+                            </div>
+                        </div>
+                        <div class="impact__image">
+                            <img src="img/impact/dog.jpg" alt="Dog">
+                        </div>
+                    </div>
+                    <!-- Второй этаж контейнера -->
+                    <div class="impact__items">
+                        <div class="impact__item item-impact">
+                            <img src="img/impact/duck.svg" class="item-impact__icon" alt="">
+                            <div class="item-impact__body">
+                                <div class="item-impact__value">3,700</div>
+                                <div class="item-impact__text">puppy baths</div>
+                            </div>
+                        </div>
+                        <div class="impact__item item-impact">
+                            <img src="img/impact/house.svg" class="item-impact__icon" alt="">
+                            <div class="item-impact__body">
+                                <div class="item-impact__value">3,700</div>
+                                <div class="item-impact__text">puppy baths</div>
+                            </div>
+                        </div>
+                        <div class="impact__item item-impact">
+                            <img src="img/impact/retractable.svg" class="item-impact__icon" alt="">
+                            <div class="item-impact__body">
+                                <div class="item-impact__value">3,700</div>
+                                <div class="item-impact__text">puppy baths</div>
+                            </div>
+                        </div>
+                        <div class="impact__item item-impact">
+                            <img src="img/impact/food.svg" class="item-impact__icon" alt="">
+                            <div class="item-impact__body">
+                                <div class="item-impact__value">3,700</div>
+                                <div class="item-impact__text">puppy baths</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main__appointment-block appointment-block">
+                <h2 class="appointment-block__title">
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                </h2>
+                <a class="appointment-block__link" href="#">Make an Appointment</a>
+            </div>
+        </main>
+        <footer class="footer">
+            <h1 class="footer__title">ITymchenko</h1>
+        </footer>
+    </div>
+</body>
+</html>
